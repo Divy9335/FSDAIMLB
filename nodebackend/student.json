@@ -1,1 +1,25 @@
-[]
+[
+  {
+    "name": "Divy Singh",
+    "email": "divy3107@gmail.com",
+    "password": "hello"
+  },
+  {
+    "name": "Jayandra",
+    "email": "manavendra.23b1531211@abes.ac.in",
+    "password": "abcd$123"
+  },
+  {
+    "name": "Divy Singh",
+    "email": "landingrajat@gmail.com",
+    "password": "abcd"
+  },
+  {
+    "name": "Divy S"
+  },
+  {
+    "name": "Jd",
+    "email": "jd123@gmail.com",
+    "password": "abcd"
+  }
+]

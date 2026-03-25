@@ -1,45 +1,29 @@
-import { useState } from "react";
-import "./App.css";
+import './App.css'
+import Main from './component/Main'
+import Dashboard from './component/Dashboard'
+import Login from './component/Login'
+import Registration from './component/Registration'
+// import FetchData from './component/FetchData'
+
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 function App() {
-  const [data, setData] = useState([]);
-  const [loader, setLoader] = useState(false)
-  async function getData() {
-    // alert("Hello from App.jsx");
-    try {
-      setLoader(true)
-      const response = await fetch("http://localhost:4007/data");
-      const jsondata = await response.json();
-      setData(jsondata.msg);
-    } catch (e) {
-      console.log(e)
-    } finally {
-      setLoader(false)
-    }
-  }
-  function cartData(dataItem){
-    alert(dataItem.title)
-  }
   return (
-    <>
-      <div className="div">
-        <h2>Hello from App.jsx</h2>
-        {
-          data.map((ele)=>(
-            <div style={{border:'8px solid orange'}}>
-              <img src={ele.image} height={200} width={200}/>
-              <h2>{ele.id}:{ele.title}</h2>
-              <h3>{ele.title}</h3>
-              <button onClick={()=>cartData(ele)}>Add to cart</button>
-            </div>
-          ))
-        }
-        {loader?(<h2 style={{color:'red'}}>Data is loading...</h2>):("")}
-        {/* {JSON.stringify(data)} */}
-        <button onClick={getData}>FetchData</button>
-      </div>
-    </>
-  );
+    <BrowserRouter>
+
+      <h2 className="text-center mt-3">Student Registration App</h2>
+
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/registration" element={<Registration />} />
+        {/* <Route path="/fetchdata" element={<FetchData />} /> */}
+      </Routes>
+
+    </BrowserRouter>
+  )
 }
 
-export default App;
+export default App
